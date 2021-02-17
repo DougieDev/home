@@ -5,8 +5,8 @@ class Building
   
   def initialize
     @units = []
-    @renters = []
-    @rented_units = []
+    # @renters = []
+    # @rented_units = []
   end
 
   def add_unit(unit)
@@ -14,10 +14,11 @@ class Building
   end
 
   def renters
-    @units.map do |unit|
-      @renters << unit.renter.name
+    renters = []
+    @units.each do |unit|
+      renters << unit.renter.name
     end
-    @renters
+    renters
   end
 
   def average_rent
@@ -28,4 +29,10 @@ class Building
     answer = sum / @units.count
   end
 
+  def rented_units
+    units.find_all do |unit|
+      unit.renter != nil
+    end
+  end
+  
 end
