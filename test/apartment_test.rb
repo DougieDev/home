@@ -28,5 +28,8 @@ class ApartmentTest < Minitest::Test
     assert_equal 1, @unit1.bedrooms
   end
 
+  def test_it_has_no_renter_by_default
+    assert_equal nil, @unit1.renter
+  end
 
 end
