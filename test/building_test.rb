@@ -25,4 +25,8 @@ class BuildingTest < Minitest::Test
 
     assert_equal [@unit1, @unit2], @building.units
   end
+
+  def test_it_has_no_renters_by_default
+    assert_equal [], @building.renters
+  end
 end
