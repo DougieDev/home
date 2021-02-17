@@ -17,4 +17,13 @@ class Building
     end
     @renters
   end
+
+  def average_rent
+    sum = 0.0
+    @units.each do |unit|
+      sum += unit.monthly_rent
+    end
+    answer = sum / @units.count
+  end
+
 end
