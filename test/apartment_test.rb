@@ -14,6 +14,9 @@ class ApartmentTest < Minitest::Test
 
   def test_it_has_a_unit_number
     assert_equal "A1", @unit1.number
+  end
 
+  def test_it_has_a_monthly_rent
+    assert_equal 1200, @unit1.monthly_rent
   end
 end
