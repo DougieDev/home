@@ -6,6 +6,7 @@ require './lib/renter'
 class ApartmentTest < Minitest::Test
   def setup
     @unit1 = Apartment.new({number: "A1", monthly_rent: 1200, bathrooms: 1, bedrooms: 1})
+    @renter1 = Renter.new("Jessie")
   end
 
   def test_it_exists
@@ -30,6 +31,14 @@ class ApartmentTest < Minitest::Test
 
   def test_it_has_no_renter_by_default
     assert_nil nil, @unit1.renter
+  end
+
+  def test_it_can_add_a_renter
+    assert_nil nil, @unit1.renter
+
+    @unit1.add_renter(@renter1)
+
+    assert_equal @renter1, @unit1.renter
   end
 
 end
