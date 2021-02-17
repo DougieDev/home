@@ -9,6 +9,7 @@ class BuildingTest < Minitest::Test
     @building = Building.new
     @unit1 = Apartment.new({number: "A1", monthly_rent: 1200, bathrooms: 1, bedrooms: 1})
     @unit2 = Apartment.new({number: "B2", monthly_rent: 999, bathrooms: 2, bedrooms: 2})
+    @renter1 = Renter.new("Aurora")
   end
 
   def test_it_exists
@@ -28,5 +29,12 @@ class BuildingTest < Minitest::Test
 
   def test_it_has_no_renters_by_default
     assert_equal [], @building.renters
+  end
+
+  def test_it_can_add_a_renter
+    @building.add_unit(@unit1)
+    @unit1.add_renter(@renter1)
+
+    assert_equal ["Aurora"], @building.renters
   end
 end
